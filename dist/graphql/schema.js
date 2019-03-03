@@ -15,6 +15,11 @@ var users = [
 ];
 var typeDefs = "\n  type User {\n    id:ID!\n    name:String!\n    email:String!\n  }\n\n  type Query {\n    allUsers: [User!]!\n  }\n\n  type Mutation {\n    createUser(name:String!, email: String!): User\n  }\n";
 var resolvers = {
+    User: {
+        id: function (user) { return user.id; },
+        name: function (user) { return user.name; },
+        email: function (user) { return user.email; }
+    },
     Query: {
         allUsers: function () { return users; }
     },
